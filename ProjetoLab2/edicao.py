@@ -3,12 +3,14 @@ e artigos submetidos e selecionados. """
 
 class Edicao():
 
-    def __init__(self,volume,numero,mes,ano,tema):
+    def __init__(self,volume,numero,mes,ano,tema,artigosSubmetidos,artigosAprovados):
         self.__volume=volume
         self.__numero=numero
         self.__mes=mes
         self.__ano=ano
         self.__tema=tema
+        self.__artigosSubmetidos=artigosSubmetidos
+        self.__artigosAprovados=artigosAprovados
 
     def getVolume(self):
         return self.__nome
@@ -39,3 +41,15 @@ class Edicao():
 
     def setTema(self,tema):
         self.__tema=tema
+    
+    def getTema(self):
+        return self.__tema
+
+    def setTema(self,artigosSubmetidos):
+        self.__artigosSubmetidos=artigosSubmetidos
+    
+    def getTema(self):
+        return self.__artigosAprovados
+
+    def setTema(self,artigosAprovados):
+        self.__artigosAprovados=artigosAprovados
