@@ -7,6 +7,7 @@ class Artigo:
         self.__titulo=titulo
         self.__arquivo=arquivo
         self.__id=Artigo.contador+1
+
         Artigo.contador+=1
 
     def getAutor(self):
