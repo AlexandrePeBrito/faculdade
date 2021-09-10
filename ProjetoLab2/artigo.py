@@ -7,7 +7,7 @@ class Artigo:
         self.__titulo=titulo
         self.__arquivo=arquivo
         self.__id=Artigo.contador+1
-
+        self.__nota
         Artigo.contador+=1
 
     def getAutor(self):
@@ -28,5 +28,11 @@ class Artigo:
     def setArquivo(self,arquivo):
         self.__arquivo=arquivo
 
-    def getAutor(self):
+    def setNota(self,nota):
+        self.__nota=nota
+
+    def getNota(self):
+        return self.__nota
+
+    def getID(self):
         return self.__id
