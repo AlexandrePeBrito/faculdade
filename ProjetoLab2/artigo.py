@@ -8,3 +8,24 @@ class Artigo:
         self.__arquivo=arquivo
         self.__id=Artigo.contador+1
         Artigo.contador+=1
+
+    def getAutor(self):
+        return self.__autor
+
+    def setAutor(self,autor):
+        self.__autor=autor
+
+    def getTitulo(self):
+        return self.__titulo
+
+    def setTitulo(self,titulo):
+        self.__titulo=titulo
+
+    def getArquivo(self):
+        return self.__arquivo
+
+    def setArquivo(self,arquivo):
+        self.__arquivo=arquivo
+
+    def getAutor(self):
+        return self.__id

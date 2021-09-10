@@ -8,3 +8,26 @@ class Autor():
         self.__instituicao=instituicao
         self.__endereco=endereco
 
+    def getNome(self):
+        return self.__nome
+
+    def setNome(self,nome):
+        self.__nome=nome
+
+    def getEmail(self):
+        return self.__email
+
+    def setEmail(self,email):
+        self.__email=email
+
+    def getInstituicao(self):
+        return self.__instituicao
+
+    def setInstituicao(self,instituicao):
+        self.__instituicao=instituicao
+
+    def getEndereco(self):
+        return self.__endereco
+
+    def setEndereco(self,endereco):
+        self.__endereco=endereco
