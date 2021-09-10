@@ -53,3 +53,10 @@ class Edicao():
 
     def setTema(self,artigosAprovados):
         self.__artigosAprovados=artigosAprovados
+
+    def dadosEdicao(self):
+        print(f"Edição:\nVolume: {self.__volume}\nNumero: {self.__numero}\nMes: {self.__mes}\n"+
+        f"Ano: {self.__ano}\nTema: {self.__tema}\nArtigos Submetidos: ")
+        for c in range(0,len(self.__artigosSubmetidos)): print(self.__artigosSubmetidos[c].getTitulo())
+        #print(f"Artigos Aprovados: ")
+        #for c in self.__artigosSubmetidos: print(self.__artigosSubmetidos)
