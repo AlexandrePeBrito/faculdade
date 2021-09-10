@@ -27,5 +27,5 @@ class Avaliador():
         self.__tema=tema
 
     def dadosAvaliador(self):
-        print(f"Nome: {self.__nome}\nEmail: {self.__email}\nTema: {self.__tema}")
+        print(f"Avaliador:\nNome: {self.__nome}\nEmail: {self.__email}\nTema: {self.__tema}")
 

@@ -7,7 +7,7 @@ class Artigo:
         self.__titulo=titulo
         self.__arquivo=arquivo
         self.__id=Artigo.contador+1
-        self.__nota
+        self.__nota=None
         Artigo.contador+=1
 
     def getAutor(self):
@@ -37,3 +37,5 @@ class Artigo:
     def getID(self):
         return self.__id
 
+    def dadosArtigo(self):
+        print(f'Artigo:\nID: {self.__id}\nAutor: {self.__autor.getNome()}\nTitulo: {self.__titulo}\nNota: {self.__nota}')

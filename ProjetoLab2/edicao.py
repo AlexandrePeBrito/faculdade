@@ -43,7 +43,7 @@ class Edicao():
         self.__tema=tema
     
     def getTema(self):
-        return self.__tema
+        return self.__artigosSubmetidos
 
     def setTema(self,artigosSubmetidos):
         self.__artigosSubmetidos=artigosSubmetidos

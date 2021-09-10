@@ -1,9 +1,8 @@
 #originalidade, conteúdo e apresentação
 from random import randint
 
-
 def AvaliarArtigo(artigo,avaliador1,avaliador2,avaliador3):
-    print(f"Os avaliadores do Artigo {artigo.getNome()} sao: ")
+    print(f"Os avaliadores do Artigo '{artigo.getTitulo()}' sao: ")
     avaliador1.dadosAvaliador()
     avaliador2.dadosAvaliador()
     avaliador3.dadosAvaliador()
@@ -17,7 +16,7 @@ def AvaliarArtigo(artigo,avaliador1,avaliador2,avaliador3):
             f'Avaliador2 {avaliador2.getNome()} : {notaAvaliador2}\n'+
             f'Avaliador3 {avaliador3.getNome()} : {notaAvaliador3}\n')
             originalidade= (notaAvaliador1+notaAvaliador2+notaAvaliador3)/3
-            print('Media final em Originalidade: {originalidade}')
+            print(f'Media final em Originalidade: {originalidade}')
 
         elif c==1: 
             print(f'\nEm conteudo os avaliadores deram a seguintes notas:\n'+
@@ -25,7 +24,7 @@ def AvaliarArtigo(artigo,avaliador1,avaliador2,avaliador3):
             f'Avaliador2 {avaliador2.getNome()} : {notaAvaliador2}\n'+
             f'Avaliador3 {avaliador3.getNome()} : {notaAvaliador3}\n')
             conteudo=(notaAvaliador1+notaAvaliador2+notaAvaliador3)/3
-            print('Media final em Conteudo: {conteudo}')
+            print(f'Media final em Conteudo: {conteudo}')
 
         elif c==2: 
             print(f'\nEm apresentação os avaliadores deram a seguintes notas:\n'+
@@ -33,9 +32,9 @@ def AvaliarArtigo(artigo,avaliador1,avaliador2,avaliador3):
             f'Avaliador2 {avaliador2.getNome()} : {notaAvaliador2}\n'+
             f'Avaliador3 {avaliador3.getNome()} : {notaAvaliador3}\n')
             apresentação=(notaAvaliador1+notaAvaliador2+notaAvaliador3)/3
-            print('Media final em Apresentação: {apresentação}')
+            print(f'Media final em Apresentação: {apresentação}')
     nota=(originalidade+conteudo+apresentação)/3
-    print('Nota final do Artigo: {nota}')
+    print(f'Nota final do Artigo: {nota}')
     artigo.setNota(nota)
 
 colecao=[]
