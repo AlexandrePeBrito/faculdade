@@ -1,6 +1,7 @@
 #originalidade, conteúdo e apresentação
 from random import randint
 
+
 def AvaliarArtigo(artigo,avaliador1,avaliador2,avaliador3):
     print(f"Os avaliadores do Artigo {artigo.getNome()} sao: ")
     avaliador1.dadosAvaliador()
@@ -36,3 +37,8 @@ def AvaliarArtigo(artigo,avaliador1,avaliador2,avaliador3):
     nota=(originalidade+conteudo+apresentação)/3
     print('Nota final do Artigo: {nota}')
     artigo.setNota(nota)
+
+colecao=[]
+def publicarEdicao(edicao):
+    colecao.append(edicao)
+

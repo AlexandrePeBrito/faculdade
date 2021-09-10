@@ -36,3 +36,4 @@ class Artigo:
 
     def getID(self):
         return self.__id
+

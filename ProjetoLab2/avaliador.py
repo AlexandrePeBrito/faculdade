@@ -28,3 +28,4 @@ class Avaliador():
 
     def dadosAvaliador(self):
         print(f"Nome: {self.__nome}\nEmail: {self.__email}\nTema: {self.__tema}")
+
