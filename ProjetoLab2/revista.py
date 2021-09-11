@@ -1,4 +1,5 @@
 #originalidade, conteúdo e apresentação
+
 from random import randint
 
 
@@ -8,7 +9,7 @@ def AvaliarArtigo(artigo,avaliadores,edicao):
     i=0
     for c in range(0,len(avaliadores)):
         if(avaliadores[c].getTema()==edicao.getTema()):
-            avaliador[i]=avaliadores[c]
+            avaliador.append(avaliadores[c])
             i+=1
     if(i<2):
         print("Esta edição não ocorrerá por falta de Avaliadores do tema")
@@ -54,8 +55,10 @@ def AvaliarArtigo(artigo,avaliadores,edicao):
         artigo.setNota(nota)
 
 class Revista():
-    
-    def publicarEdicao(edicao):
-        colecao=[]
-        colecao.append(edicao)
+    __colecao=[]
+    def __init__(self,edicao):
+        self.__colecao.append(edicao)
+
+    def getColecao(self):
+        return self.__colecao
 

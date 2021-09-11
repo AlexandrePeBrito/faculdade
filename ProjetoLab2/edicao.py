@@ -35,16 +35,16 @@ class Edicao():
     def setTema(self,tema):
         self.__tema=tema
     
-    def getTema(self):
+    def getArtigosSubmetidos(self):
         return self.__artigosSubmetidos
 
-    def setTema(self,artigosSubmetidos):
+    def setArtigosSubmetidos(self,artigosSubmetidos):
         self.__artigosSubmetidos=artigosSubmetidos
     
-    def getTema(self):
+    def getArtigosAprovados(self):
         return self.__artigosAprovados
 
-    def setTema(self,artigosAprovados):
+    def setArtigosAprovados(self,artigosAprovados):
         self.__artigosAprovados=artigosAprovados
 
     def dadosEdicao(self):

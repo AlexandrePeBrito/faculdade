@@ -2,6 +2,7 @@ import artigo as ar
 import autor  as au
 import avaliador  as av
 import edicao as ed
+import revista as re
 from random import randint
 
 
@@ -17,7 +18,7 @@ def inserirAutores():
         instituicao=input("Informe a instituição do Autor: ")
         endereco=input("Informe o endereço do Autor: ")
         autores.append(au.Autor(nome,email,instituicao,endereco))
-        respAU=int(input("Para Parar de inserir Avaliador Aperte 0."))
+        respAU=int(input("Para PARAR de inserir Autor Aperte 0."))
     return autores
 
 def inserirArtigos(autores):
@@ -25,13 +26,15 @@ def inserirArtigos(autores):
     respAR=1
     while respAR!=0:
         for c in range(0,len(autores)):print(f'{c+1}- {autores[c].getNome()}')
+        print("\n")
         autor=int(input("Informe o numero correspondente ao Autor: "))
         titulo=input("Informe o Titulo do Artigo: ")
         arquivo=None
         artigos.append(ar.Artigo(autores[autor-1],titulo,arquivo))
-        respAR=int(input("Para Parar de inserir Avaliador Aperte 0."))
+        respAR=int(input("Para PARAR de inserir Artigo Aperte 0."))
     return artigos
 def inserirEdicao(artigos):
+    print("\n")
     tema=input("Informe o tema desta Edição: ")
     tema.lower()
     edicao=ed.Edicao(tema,artigos,None)
@@ -57,10 +60,8 @@ def inserirAvaliadores():
 
 def aprovados(artigosAprovados,avaliadores):
     ava=avaliadores[randint(0,len(avaliadores))]
+    print("\n")
     print(f"O Avaliador chefe{ava.getNome()} Aprovou {len(artigosAprovados)} Artigos")
-
-
-
 
 
 

@@ -11,17 +11,25 @@ artigos=[]
 artigosAprovados=[]
 avaliadores=[]
 autores=[]
+edicao=[]
+revista=[]
+verif=1
+menu=0
 
+while verif!=0:
+    avaliadores=aux.inserirAvaliadores()                                   
+    autores=aux.inserirAutores()                                        
+    artigos=aux.inserirArtigos(autores)                                       
+    edicao=aux.inserirEdicao(artigos)
+                                        
+    for c in range(0,len(artigos)):
+        re.AvaliarArtigo(artigos[c],avaliadores,edicao) 
+        if(artigos[c].getNota()>=7): artigosAprovados.append(artigos[c]) 
+    edicao.setArtigosAprovados(artigosAprovados)
 
-avaliadores=aux.inserirAvaliadores()                                   
-autores=aux.inserirAutores()                                        
-artigos=aux.inserirArtigos(autores)                                       
-edicao=aux.inserirEdicao(artigos)
-                                     
-for c in range(0,len(artigos)):
-    re.AvaliarArtigo(artigos[c],avaliadores) 
-    if(artigos[c].getNota()>=7): artigosAprovados.append(artigos[c])
+    revista=re.Revista(edicao)
+    print("\n\n**************REVISTA**************")
+    print(revista.getColecao())
+    
 
-
-#for c in range(0,len(artigos)): print(artigos[c].dadosArtigo())
 
