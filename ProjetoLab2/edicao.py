@@ -6,7 +6,7 @@ import datetime
 class Edicao():
     id=1
 
-    def __init__(self,tema,artigosSubmetidos,artigosAprovados):
+    def __init__(self,tema,artigosSubmetidos):
         date = datetime.date.today()
         self.__volume=Edicao.id
         self.__numero=randint(1,500)
@@ -14,7 +14,7 @@ class Edicao():
         self.__ano= date.year
         self.__tema=tema
         self.__artigosSubmetidos=artigosSubmetidos
-        self.__artigosAprovados=artigosAprovados
+        self.__artigosAprovados=[]
         Edicao.id+=1
 
     def getVolume(self):
@@ -51,6 +51,5 @@ class Edicao():
         print(f"Edição:\nVolume: {self.__volume}\nNumero: {self.__numero}\nMes: {self.__mes}\n"+
         f"Ano: {self.__ano}\nTema: {self.__tema}\nArtigos Submetidos: ")
         for c in range(0,len(self.__artigosSubmetidos)): print(self.__artigosSubmetidos[c].getTitulo())
-        #print(f"Artigos Aprovados: ")
-        #for c in self.__artigosSubmetidos: print(self.__artigosSubmetidos)
+
 
