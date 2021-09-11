@@ -38,10 +38,10 @@ while verif!=0:
     #Mostra para o usuario todas as edições
     print("Edições da Revista:")
     if len(revista.getColecao())==0:
-        print(f"\t{revista.getColecao()[0]}")
+        print(f"\t{revista.getColecao()[0].dadosEdicao()}")
     else:
         for i in range(0,len(revista.getColecao())):
-            print(f"\t{revista.getColecao()[i]}")
+            print(f"\t{revista.getColecao()[i].dadosEdicao()}")
     menuEdicao=int(input("Digite o numero referente a EDIÇÃO que deseja visualizar: "))
 
     #Mostrar os artigos submetidos
