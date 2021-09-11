@@ -59,6 +59,6 @@ class Revista():
     def __init__(self,edicao):
         self.__colecao.append(edicao)
 
-    def getColecao(self):
+    def getColecao(self,):
         return self.__colecao
 

@@ -1,6 +1,5 @@
-import datetime
+vetorA=[1,2,3,4,5,9]
+vetorB=[2,4,9]
 
-date = datetime.date.today()
-print(type(date.year))
-
-print(type(date.month))
+vetorC=list(set(vetorA)-set(vetorB))
+print(vetorC)
