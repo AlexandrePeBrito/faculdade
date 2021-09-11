@@ -6,7 +6,6 @@ import revista  as re
 import auxiliar as aux
 
 
-
 artigos=[]
 artigosAprovados=[]
 artigosReprovados=[]
@@ -14,10 +13,8 @@ avaliadores=[]
 autores=[]
 edicao=[]
 revista=[]
-verif=1
-menu=0
 
-while verif!=0:
+def inserirEdicao():
     #Inserindo os dados
     avaliadores=aux.inserirAvaliadores()                                   
     autores=aux.inserirAutores()                                        
@@ -36,14 +33,15 @@ while verif!=0:
     revista=re.Revista(edicao)
 
     #Mostra para o usuario todas as edições
-    print("Edições da Revista:\n\n")
+    print("Edições da Revista:\n")
     if len(revista.getColecao())==1:
         print(f"\t{revista.getColecao()[0].dadosEdicao()}")
-    elif len(revista.getColecao())==1:
-        print("Esta Revista não tem edições")
+    elif len(revista.getColecao())==0:
+        print("Esta Revista não tem edições")      
     else:
         for i in range(0,len(revista.getColecao())):
             print(f"\t{revista.getColecao()[i].dadosEdicao()}")
+
     menuEdicao=int(input("\nDigite o numero referente a EDIÇÃO que deseja visualizar: "))
 
     #Mostrar os artigos submetidos
@@ -76,5 +74,5 @@ while verif!=0:
         for c in range(0,len(artigosReprovados)):
             print(f"\t{artigosReprovados[c].getTitulo()}")
 
-
+inserirEdicao()
 

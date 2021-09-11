@@ -12,14 +12,14 @@ def AvaliarArtigo(artigo,avaliadores,edicao):
             avaliador.append(avaliadores[c])
             i+=1
     if(i<2):
-        print("Esta edição não ocorrerá por falta de Avaliadores do tema")
+        print("\n\nEsta edição não ocorrerá por falta de Avaliadores do tema")
         exit(1)
     else:    
         avaliador1=avaliador[0]
         avaliador2=avaliador[1]
         avaliador3=avaliador[2]
-
-        print(f"Os avaliadores do Artigo '{artigo.getTitulo()}' sao: ")
+        print("\n\n****************************************AVALIAÇÃO DO ARTIGO****************************************")
+        print(f"\nOs avaliadores do Artigo '{artigo.getTitulo()}' sao: ")
         print(f"\nAvaliador1: {avaliador1.getNome()}")
         print(f"Avaliador2: {avaliador2.getNome()}")
         print(f"Avaliador3: {avaliador3.getNome()}")
@@ -52,6 +52,7 @@ def AvaliarArtigo(artigo,avaliadores,edicao):
                 print(f'Media final em Apresentação: {apresentação}')
         nota=(originalidade+conteudo+apresentação)/3
         print(f'\n\nNota final do Artigo: {nota}')
+        print("\n\n****************************************FIM DA AVALIAÇÃO****************************************")
         artigo.setNota(nota)
 
 class Revista():
@@ -61,4 +62,5 @@ class Revista():
 
     def getColecao(self,):
         return self.__colecao
-
+    def setColecao(self,edicao):
+        self.__colecao.append(edicao)

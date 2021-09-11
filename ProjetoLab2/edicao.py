@@ -48,8 +48,9 @@ class Edicao():
        self.__artigosAprovados=artigosAprovados
 
     def dadosEdicao(self):
-        print(f"\tVolume: {self.__volume}\n\tNumero: {self.__numero}\n\tMes: {self.__mes}\n\t"+
-        f"Ano: {self.__ano}\n\tTema: {self.__tema}\nArtigos Submetidos: ")
-        for c in range(0,len(self.__artigosSubmetidos)): print(f"\t{self.__artigosSubmetidos[c].getTitulo()}")
-
+        print(f"\tVolume: {self.__volume}"
+        +f"\n\tNumero: {self.__numero}"
+        +f"\n\tMes: {self.__mes}"
+        +f"\n\tAno: {self.__ano}"
+        +f"\n\tTema: {self.__tema}")
 
