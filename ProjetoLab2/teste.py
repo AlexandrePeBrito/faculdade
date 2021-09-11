@@ -1,5 +1,8 @@
-vetorA=[1,2,3,4,5,9]
-vetorB=[2,4,9]
 
-vetorC=list(set(vetorA)-set(vetorB))
-print(vetorC)
+
+
+
+nome="alexandre"
+
+print("nome: ",format(nome))
+print(f"nome: {nome} este cara eh lindao")
