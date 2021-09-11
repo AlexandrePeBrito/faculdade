@@ -1,40 +1,33 @@
 """ •	Para uma edição sabemos volume, número, mês, ano, tema
 e artigos submetidos e selecionados. """
+from random import randint
+import datetime
 
 class Edicao():
+    id=1
 
-    def __init__(self,volume,numero,mes,ano,tema,artigosSubmetidos,artigosAprovados):
-        self.__volume=volume
-        self.__numero=numero
-        self.__mes=mes
-        self.__ano=ano
+    def __init__(self,tema,artigosSubmetidos,artigosAprovados):
+        date = datetime.date.today()
+        self.__volume=Edicao.id
+        self.__numero=randint(1,500)
+        self.__mes=date.month
+        self.__ano= date.year
         self.__tema=tema
         self.__artigosSubmetidos=artigosSubmetidos
         self.__artigosAprovados=artigosAprovados
+        Edicao.id+=1
 
     def getVolume(self):
         return self.__nome
 
-    def setVolume(self,volume):
-        self.__volume=volume
-
     def getNumero(self):
         return self.__numero
-
-    def setNumero(self,numero):
-        self.__numero=numero
 
     def getMes(self):
         return self.__mes
 
-    def setMes(self,mes):
-        self.__mes=mes
-
     def getAno(self):
         return self.__ano
-
-    def setAno(self,ano):
-        self.__ano=ano
     
     def getTema(self):
         return self.__tema
