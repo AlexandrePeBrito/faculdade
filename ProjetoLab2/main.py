@@ -36,17 +36,19 @@ while verif!=0:
     revista=re.Revista(edicao)
 
     #Mostra para o usuario todas as edições
-    print("Edições da Revista:\n\n1-")
-    if len(revista.getColecao())==0:
+    print("Edições da Revista:\n\n")
+    if len(revista.getColecao())==1:
         print(f"\t{revista.getColecao()[0].dadosEdicao()}")
+    elif len(revista.getColecao())==1:
+        print("Esta Revista não tem edições")
     else:
         for i in range(0,len(revista.getColecao())):
             print(f"\t{revista.getColecao()[i].dadosEdicao()}")
-    menuEdicao=int(input("Digite o numero referente a EDIÇÃO que deseja visualizar: "))
+    menuEdicao=int(input("\nDigite o numero referente a EDIÇÃO que deseja visualizar: "))
 
     #Mostrar os artigos submetidos
     print("\nO titulo do(s) Artigo(s) submetidos:\n")
-    if len(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos())==0:
+    if len(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos())==1:
         print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosSubmetidos()[0].getTitulo()}")
     else:
         for c in range(0,len(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos())):
@@ -54,18 +56,22 @@ while verif!=0:
 
     #Mostrar os artigos Aprovado
     print("\nO titulo do(s) Artigo(s) Aprovados:\n")
-    if len(revista.getColecao()[menuEdicao-1].getArtigosAprovados())==0:
+    if len(revista.getColecao()[menuEdicao-1].getArtigosAprovados())==1:
         print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosAprovados()[0].getTitulo()}")
+    elif len(revista.getColecao()[menuEdicao-1].getArtigosAprovados())==0:
+        print("\tNenhum artigo submetido foi Aprovado")
     else:
         for c in range(0,len(revista.getColecao()[menuEdicao-1].getArtigosAprovados())):
             print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosAprovados()[c].getTitulo()}")
 
     #Mostrar os artigos Reprovados
-    artigosReprovados=list(set(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos()) - set(revista.getColecao()[menuEdicao].getArtigosAprovados()))
+    artigosReprovados=list(set(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos()) - set(revista.getColecao()[menuEdicao-1].getArtigosAprovados()))
     
     print("\nO titulo do(s) Artigo(s) Reprovados:\n")
-    if len(artigosReprovados)==0:
+    if len(artigosReprovados)==1:
         print(f"\t{artigosReprovados[0].getTitulo()}")
+    elif len(artigosReprovados)==0:
+        print("\t Todos os artigos Submetidos foram Aprovados")
     else:
         for c in range(0,len(artigosReprovados)):
             print(f"\t{artigosReprovados[c].getTitulo()}")

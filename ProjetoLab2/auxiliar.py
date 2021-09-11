@@ -18,7 +18,7 @@ def inserirAutores():
         instituicao=input("Informe a instituição do Autor: ")
         endereco=input("Informe o endereço do Autor: ")
         autores.append(au.Autor(nome,email,instituicao,endereco))
-        respAU=int(input("Para PARAR de inserir Autor Aperte 0."))
+        respAU=int(input("Para SAIR Pressione 0 : "))
     return autores
 
 def inserirArtigos(autores):
@@ -31,13 +31,13 @@ def inserirArtigos(autores):
         titulo=input("Informe o Titulo do Artigo: ")
         arquivo=None
         artigos.append(ar.Artigo(autores[autor-1],titulo,arquivo))
-        respAR=int(input("Para PARAR de inserir Artigo Aperte 0."))
+        respAR=int(input("Para SAIR Pressione 0 : "))
     return artigos
 def inserirEdicao(artigos):
     print("\n")
     tema=input("Informe o tema desta Edição: ")
     tema.lower()
-    edicao=ed.Edicao(tema,artigos,None)
+    edicao=ed.Edicao(tema,artigos)
     return edicao
 
 def inserirAvaliadores():
@@ -55,7 +55,7 @@ def inserirAvaliadores():
         if(c<3):
             respAV=1
         else:
-            respAV=int(input("Para Parar de inserir Avaliador Aperte 0."))
+            respAV=int(input("Para SAIR Pressione 0 : "))
     return Avaliadores
 
 def aprovados(artigosAprovados,avaliadores):

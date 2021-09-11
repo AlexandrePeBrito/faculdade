@@ -45,11 +45,11 @@ class Edicao():
         return self.__artigosAprovados
 
     def setArtigosAprovados(self,artigosAprovados):
-        self.__artigosAprovados=artigosAprovados
+       self.__artigosAprovados=artigosAprovados
 
     def dadosEdicao(self):
-        print(f"Edição:\nVolume: {self.__volume}\nNumero: {self.__numero}\nMes: {self.__mes}\n"+
-        f"Ano: {self.__ano}\nTema: {self.__tema}\nArtigos Submetidos: ")
-        for c in range(0,len(self.__artigosSubmetidos)): print(self.__artigosSubmetidos[c].getTitulo())
+        print(f"\tVolume: {self.__volume}\n\tNumero: {self.__numero}\n\tMes: {self.__mes}\n\t"+
+        f"Ano: {self.__ano}\n\tTema: {self.__tema}\nArtigos Submetidos: ")
+        for c in range(0,len(self.__artigosSubmetidos)): print(f"\t{self.__artigosSubmetidos[c].getTitulo()}")
 
 

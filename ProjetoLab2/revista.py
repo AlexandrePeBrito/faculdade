@@ -20,9 +20,9 @@ def AvaliarArtigo(artigo,avaliadores,edicao):
         avaliador3=avaliador[2]
 
         print(f"Os avaliadores do Artigo '{artigo.getTitulo()}' sao: ")
-        avaliador1.dadosAvaliador()
-        avaliador2.dadosAvaliador()
-        avaliador3.dadosAvaliador()
+        print(f"\nAvaliador1: {avaliador1.getNome()}")
+        print(f"Avaliador2: {avaliador2.getNome()}")
+        print(f"Avaliador3: {avaliador3.getNome()}")
         for c in range(0,3):
             notaAvaliador1=randint(0,10)
             notaAvaliador2=randint(0,10)
@@ -51,7 +51,7 @@ def AvaliarArtigo(artigo,avaliadores,edicao):
                 apresentação=(notaAvaliador1+notaAvaliador2+notaAvaliador3)/3
                 print(f'Media final em Apresentação: {apresentação}')
         nota=(originalidade+conteudo+apresentação)/3
-        print(f'Nota final do Artigo: {nota}')
+        print(f'\n\nNota final do Artigo: {nota}')
         artigo.setNota(nota)
 
 class Revista():
