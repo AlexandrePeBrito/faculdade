@@ -60,3 +60,4 @@ class Edicao():
         for c in range(0,len(self.__artigosSubmetidos)): print(self.__artigosSubmetidos[c].getTitulo())
         #print(f"Artigos Aprovados: ")
         #for c in self.__artigosSubmetidos: print(self.__artigosSubmetidos)
+
