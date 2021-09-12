@@ -11,7 +11,7 @@ def AvaliarArtigo(artigo,avaliadores,edicao):
         if(avaliadores[c].getTema()==edicao.getTema()):
             avaliador.append(avaliadores[c])
             i+=1
-    if(i<2):
+    if(i<3):
         print("\n\nEsta edição não ocorrerá por falta de Avaliadores do tema")
         exit(1)
     else:    
