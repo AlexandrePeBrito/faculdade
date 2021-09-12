@@ -110,10 +110,14 @@ def menu():
                 for c in range(0,len(autores)):
                     print(autores[c].dadosAutor())
             elif respMenu==3:
-                for c in range(0,len(artigos)):
-                    print(artigos[c].dadosArtigo())
+                try:
+                    for c in range(0,len(artigos)):
+                        print(artigos[c].dadosArtigo())
+                except TypeError:
+                    print("Nenhum Artigo foi submetido")
             elif respMenu==4:
-                pass
+                for c in range(0,len(revista.getColecao())):
+                    print(revista.getColecao()[c].dadosEdicao())
             elif respMenu==5:
                 print("\nObrigado por utilizar do nosso Sistema!!")
                 exit(1)
