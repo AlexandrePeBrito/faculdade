@@ -6,15 +6,10 @@ import revista  as re
 import auxiliar as aux
 
 
-artigos=[]
 artigosAprovados=[]
 artigosReprovados=[]
-avaliadores=[]
-autores=[]
-edicao=[]
-revista=[]
 
-def inserirEdicao():
+def inserirEdicao(revista):
     #Inserindo os dados
     avaliadores=aux.inserirAvaliadores()                                   
     autores=aux.inserirAutores()                                        
@@ -32,7 +27,10 @@ def inserirEdicao():
     except TypeError:
         print("Nenhum artigo foi Submetido nesta edição")
     #publicando a edição na revista
-    revista=re.Revista(edicao)
+    if(revista==None):
+        revista=re.Revista(edicao)
+    else:
+        revista.setColecao(edicao)
 
     #Mostra para o usuario todas as edições
     print("Edições da Revista:\n")
