@@ -97,12 +97,13 @@ def menu():
     while respMenu!=0:
         if c==0:
             avaliadores, autores, artigos, revista = inserirEdicao()
+            c+=1
         else:
             respMenu=input("\n\nMenu:\t1- Visualizar Avaliadores"+
             "\n\t\t2- Visualizar Autores"+
             "\n\t\t3- Visualizar Artigos"+
             "\n\t\t4- Visualizar Edições"+
-            "\n\t\t5- sair")
+            "\n\t\t0- sair")
             if respMenu==1:
                 for c in range(0,len(avaliadores)):
                     print(avaliadores[c].dadosAvaliador())
@@ -118,7 +119,7 @@ def menu():
             elif respMenu==4:
                 for c in range(0,len(revista.getColecao())):
                     print(revista.getColecao()[c].dadosEdicao())
-            elif respMenu==5:
+            elif respMenu==0:
                 print("\nObrigado por utilizar do nosso Sistema!!")
                 exit(1)
 
