@@ -27,12 +27,16 @@ def inserirArtigos(autores):
     while respAR!=0:
         for c in range(0,len(autores)):print(f'{c+1}- {autores[c].getNome()}')
         print("\n")
-        autor=int(input("Informe o numero correspondente ao Autor: "))
-        titulo=input("Informe o Titulo do Artigo: ")
-        arquivo=None
-        artigos.append(ar.Artigo(autores[autor-1],titulo,arquivo))
-        respAR=int(input("Para SAIR Pressione 0 : "))
-    return artigos
+        try:
+            autor=int(input("Informe o numero correspondente ao Autor: "))
+            titulo=input("Informe o Titulo do Artigo: ")
+            arquivo='Arquivo'
+            artigos.append(ar.Artigo(autores[autor-1],titulo,arquivo))
+            respAR=int(input("Para SAIR Pressione 0 : "))
+            return artigos
+        except ValueError:
+            print("Você inseriu um valor invalido")
+            return
 def inserirEdicao(artigos):
     print("\n")
     tema=input("Informe o tema desta Edição: ")

@@ -21,14 +21,16 @@ def inserirEdicao():
     artigos=aux.inserirArtigos(autores)                                       
     edicao=aux.inserirEdicao(artigos)
 
-    #Dando as notas para os artigos                                    
-    for c in range(0,len(artigos)):
-        re.AvaliarArtigo(artigos[c],avaliadores,edicao) 
-        if(artigos[c].getNota()>=7): artigosAprovados.append(artigos[c])
-    
-    #Setando os artigos aprovados 
-    edicao.setArtigosAprovados(artigosAprovados)
-
+    #Dando as notas para os artigos  
+    try:                                  
+        for c in range(0,len(artigos)):
+            re.AvaliarArtigo(artigos[c],avaliadores,edicao) 
+            if(artigos[c].getNota()>=7): artigosAprovados.append(artigos[c])
+        
+        #Setando os artigos aprovados 
+        edicao.setArtigosAprovados(artigosAprovados)
+    except TypeError:
+        print("Nenhum artigo foi Submetido nesta edição")
     #publicando a edição na revista
     revista=re.Revista(edicao)
 
@@ -41,38 +43,54 @@ def inserirEdicao():
     else:
         for i in range(0,len(revista.getColecao())):
             print(f"\t{revista.getColecao()[i].dadosEdicao()}")
-
-    menuEdicao=int(input("\nDigite o numero referente a EDIÇÃO que deseja visualizar: "))
-
-    #Mostrar os artigos submetidos
-    print("\nO titulo do(s) Artigo(s) submetidos:\n")
-    if len(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos())==1:
-        print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosSubmetidos()[0].getTitulo()}")
-    else:
-        for c in range(0,len(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos())):
-            print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosSubmetidos()[c].getTitulo()}")
-
-    #Mostrar os artigos Aprovado
-    print("\nO titulo do(s) Artigo(s) Aprovados:\n")
-    if len(revista.getColecao()[menuEdicao-1].getArtigosAprovados())==1:
-        print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosAprovados()[0].getTitulo()}")
-    elif len(revista.getColecao()[menuEdicao-1].getArtigosAprovados())==0:
-        print("\tNenhum artigo submetido foi Aprovado")
-    else:
-        for c in range(0,len(revista.getColecao()[menuEdicao-1].getArtigosAprovados())):
-            print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosAprovados()[c].getTitulo()}")
-
-    #Mostrar os artigos Reprovados
-    artigosReprovados=list(set(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos()) - set(revista.getColecao()[menuEdicao-1].getArtigosAprovados()))
+    try:
+        menuEdicao=int(input("\nDigite o numero referente a EDIÇÃO que deseja visualizar: "))
     
-    print("\nO titulo do(s) Artigo(s) Reprovados:\n")
-    if len(artigosReprovados)==1:
-        print(f"\t{artigosReprovados[0].getTitulo()}")
-    elif len(artigosReprovados)==0:
-        print("\t Todos os artigos Submetidos foram Aprovados")
-    else:
-        for c in range(0,len(artigosReprovados)):
-            print(f"\t{artigosReprovados[c].getTitulo()}")
+        #Mostrar os artigos submetidos
+        print("\nO titulo do(s) Artigo(s) submetidos:\n")
+        try:
+            if len(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos())==1:
+                print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosSubmetidos()[0].getTitulo()}")
+            elif len(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos())==0:
+                print("\tNenhum artigo foi submetido")
+            else:
+                for c in range(0,len(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos())):
+                    print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosSubmetidos()[c].getTitulo()}")
+        except TypeError:
+            print("\tNenhum artigo foi submetido")
 
+        #Mostrar os artigos Aprovado
+        print("\nO titulo do(s) Artigo(s) Aprovados:\n")
+        try:
+            if len(revista.getColecao()[menuEdicao-1].getArtigosAprovados())==1:
+                print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosAprovados()[0].getTitulo()}")
+            elif len(revista.getColecao()[menuEdicao-1].getArtigosAprovados())==0:
+                print("\tNenhum artigo submetido foi Aprovado")
+            else:
+                for c in range(0,len(revista.getColecao()[menuEdicao-1].getArtigosAprovados())):
+                    print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosAprovados()[c].getTitulo()}")
+        except TypeError:
+            print("\tNenhum artigo foi submetido")
+
+        #Mostrar os artigos Reprovados
+        print("\nO titulo do(s) Artigo(s) Reprovados:\n")
+        
+        try:
+            artigosReprovados=list(set(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos()) - set(revista.getColecao()[menuEdicao-1].getArtigosAprovados()))
+        
+            if len(artigosReprovados)==1:
+                print(f"\t{artigosReprovados[0].getTitulo()}")
+            elif len(artigosReprovados)==0:
+                print("\t Todos os artigos Submetidos foram Aprovados Ou não submeteram nenhum artigo")
+            else:
+                for c in range(0,len(artigosReprovados)):
+                    print(f"\t{artigosReprovados[c].getTitulo()}")
+        except TypeError:
+            print("\tNenhum artigo foi submetido")
+    except ValueError:
+        print("Você inseriu um valor invalido!")
+        exit(1)
+
+        
 inserirEdicao()
 
