@@ -119,7 +119,7 @@ def menu():
             "\n\t\t4- Visualizar todas as Edições"+
             "\n\t\t5- Acessar outra Edição"
             "\n\t\t6 Criar mais uma Edição"+
-            "\n\t\t0- sair"))
+            "\n\t\t0- sair:\t"))
             if respMenu==1:
                 for c in range(0,len(avaliadores)):
                     print(avaliadores[c].dadosAvaliador())
