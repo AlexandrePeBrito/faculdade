@@ -99,26 +99,31 @@ def menu():
             avaliadores, autores, artigos, revista = inserirEdicao()
             c+=1
         else:
-            respMenu=input("\n\nMenu:\t1- Visualizar Avaliadores"+
+            respMenu=int(input("\n\nMenu:\t\t1- Visualizar Avaliadores"+
             "\n\t\t2- Visualizar Autores"+
             "\n\t\t3- Visualizar Artigos"+
             "\n\t\t4- Visualizar Edições"+
-            "\n\t\t0- sair")
+            "\n\t\t0- sair"))
             if respMenu==1:
                 for c in range(0,len(avaliadores)):
                     print(avaliadores[c].dadosAvaliador())
+                    c+=1
             elif respMenu==2:
                 for c in range(0,len(autores)):
                     print(autores[c].dadosAutor())
+                    c+=1
             elif respMenu==3:
                 try:
                     for c in range(0,len(artigos)):
                         print(artigos[c].dadosArtigo())
+                        c+=1
                 except TypeError:
                     print("Nenhum Artigo foi submetido")
+                    c+=1
             elif respMenu==4:
-                for c in range(0,len(revista.getColecao())):
+                for c in range(0,len(revista.getColecao())-1):
                     print(revista.getColecao()[c].dadosEdicao())
+                    c+=1
             elif respMenu==0:
                 print("\nObrigado por utilizar do nosso Sistema!!")
                 exit(1)
