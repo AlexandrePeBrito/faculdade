@@ -33,40 +33,37 @@ def inserirEdicao(revista):
         revista.setColecao(edicao)
 
     #Mostra para o usuario todas as edições
-    print("Edições da Revista:\n")
+    print("Edição da Revista:\n")
     if len(revista.getColecao())==1:
         print(f"\t{revista.getColecao()[0].dadosEdicao()}")
     elif len(revista.getColecao())==0:
         print("Esta Revista não tem edições")      
     else:
-        for i in range(0,len(revista.getColecao())):
-            print(f"\t{revista.getColecao()[i].dadosEdicao()}")
-    try:
-        menuEdicao=int(input("\nDigite o numero referente a EDIÇÃO que deseja visualizar: "))
-    
+        print(f"\t{revista.getColecao()[len(revista.getColecao())-1].dadosEdicao()}")
+    try:    
         #Mostrar os artigos submetidos
         print("\nO titulo do(s) Artigo(s) submetidos:\n")
         try:
-            if len(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos())==1:
-                print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosSubmetidos()[0].getTitulo()}")
-            elif len(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos())==0:
+            if len(revista.getColecao()[len(revista.getColecao())-1].getArtigosSubmetidos())==1:
+                print(f"\t{revista.getColecao()[len(revista.getColecao())-1].getArtigosSubmetidos()[0].getTitulo()}")
+            elif len(revista.getColecao()[len(revista.getColecao())-1].getArtigosSubmetidos())==0:
                 print("\tNenhum artigo foi submetido")
             else:
-                for c in range(0,len(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos())):
-                    print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosSubmetidos()[c].getTitulo()}")
+                for c in range(0,len(revista.getColecao()[len(revista.getColecao())-1].getArtigosSubmetidos())):
+                    print(f"\t{revista.getColecao()[len(revista.getColecao())-1].getArtigosSubmetidos()[c].getTitulo()}")
         except TypeError:
             print("\tNenhum artigo foi submetido")
 
         #Mostrar os artigos Aprovado
         print("\nO titulo do(s) Artigo(s) Aprovados:\n")
         try:
-            if len(revista.getColecao()[menuEdicao-1].getArtigosAprovados())==1:
-                print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosAprovados()[0].getTitulo()}")
-            elif len(revista.getColecao()[menuEdicao-1].getArtigosAprovados())==0:
+            if len(revista.getColecao()[len(revista.getColecao())-1].getArtigosAprovados())==1:
+                print(f"\t{revista.getColecao()[len(revista.getColecao())-1].getArtigosAprovados()[0].getTitulo()}")
+            elif len(revista.getColecao()[len(revista.getColecao())-1].getArtigosAprovados())==0:
                 print("\tNenhum artigo submetido foi Aprovado")
             else:
-                for c in range(0,len(revista.getColecao()[menuEdicao-1].getArtigosAprovados())):
-                    print(f"\t{revista.getColecao()[menuEdicao-1].getArtigosAprovados()[c].getTitulo()}")
+                for c in range(0,len(revista.getColecao()[len(revista.getColecao())-1].getArtigosAprovados())):
+                    print(f"\t{revista.getColecao()[len(revista.getColecao())-1].getArtigosAprovados()[c].getTitulo()}")
         except TypeError:
             print("\tNenhum artigo foi submetido")
 
@@ -74,7 +71,7 @@ def inserirEdicao(revista):
         print("\nO titulo do(s) Artigo(s) Reprovados:\n")
         
         try:
-            artigosReprovados=list(set(revista.getColecao()[menuEdicao-1].getArtigosSubmetidos()) - set(revista.getColecao()[menuEdicao-1].getArtigosAprovados()))
+            artigosReprovados=list(set(revista.getColecao()[len(revista.getColecao())-1].getArtigosSubmetidos()) - set(revista.getColecao()[len(revista.getColecao())-1].getArtigosAprovados()))
         
             if len(artigosReprovados)==1:
                 print(f"\t{artigosReprovados[0].getTitulo()}")
@@ -89,18 +86,39 @@ def inserirEdicao(revista):
         print("Você inseriu um valor invalido!")
     return avaliadores, autores, artigos, revista
 
+
+
+def acessarEdicao(revista,edicao):
+    respMenu=1
+    while respMenu!=0:
+        respMenu=int(input("\n\nMenu:\t\t1- Visualizar Artigos"+
+            "\n\t\t0- sair"))
+        if respMenu==1:
+            try:
+                for c in range(0,len(revista.getColecao()[edicao-1].getArtigosSubmetidos())):
+                    print(revista.getColecao()[edicao-1].getArtigosSubmetidos()[c].dadosArtigo())
+                    c+=1
+            except TypeError:
+                print("Nenhum Artigo foi submetido")   
+        elif respMenu==0:
+            print("\nObrigado por utilizar do nosso Sistema!!")   
+
+
 def menu():
     c=0
     respMenu=1
     while respMenu!=0:
         if c==0:
-            avaliadores, autores, artigos, revista = inserirEdicao()
+            avaliadores, autores, artigos, revista = inserirEdicao(None)
             c+=1
         else:
-            respMenu=int(input("\n\nMenu:\t\t1- Visualizar Avaliadores"+
-            "\n\t\t2- Visualizar Autores"+
-            "\n\t\t3- Visualizar Artigos"+
-            "\n\t\t4- Visualizar Edições"+
+           
+            respMenu=int(input("\n\nMenu:\t\t1- Visualizar Avaliadores desta Edição"+
+            "\n\t\t2- Visualizar Autores desta Edição"+
+            "\n\t\t3- Visualizar Artigos desta Edição"+
+            "\n\t\t4- Visualizar todas as Edições"+
+            "\n\t\t5- Acessar outra Edição"
+            "\n\t\t6 Criar mais uma Edição"+
             "\n\t\t0- sair"))
             if respMenu==1:
                 for c in range(0,len(avaliadores)):
@@ -122,6 +140,12 @@ def menu():
                 for c in range(0,len(revista.getColecao())):
                     print(revista.getColecao()[c].dadosEdicao())
                     c+=1
+            elif respMenu==5:
+                volEdicao=int(input("Informe o volume da Edição que deseja acessar: "))
+                acessarEdicao(revista,volEdicao)
+            elif respMenu==6:
+                avaliadores, autores, artigos, revista = inserirEdicao(revista)
+                c+=1
             elif respMenu==0:
                 print("\nObrigado por utilizar do nosso Sistema!!")
                 exit(1)
