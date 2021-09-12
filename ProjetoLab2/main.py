@@ -121,7 +121,7 @@ def menu():
                     print("Nenhum Artigo foi submetido")
                     c+=1
             elif respMenu==4:
-                for c in range(0,len(revista.getColecao())-1):
+                for c in range(0,len(revista.getColecao())):
                     print(revista.getColecao()[c].dadosEdicao())
                     c+=1
             elif respMenu==0:
