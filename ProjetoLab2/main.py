@@ -121,3 +121,5 @@ def menu():
             elif respMenu==5:
                 print("\nObrigado por utilizar do nosso Sistema!!")
                 exit(1)
+
+menu()

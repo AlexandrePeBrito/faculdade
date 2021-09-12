@@ -33,10 +33,10 @@ def inserirArtigos(autores):
             arquivo='Arquivo'
             artigos.append(ar.Artigo(autores[autor-1],titulo,arquivo))
             respAR=int(input("Para SAIR Pressione 0 : "))
-            return artigos
         except ValueError:
             print("Você inseriu um valor invalido")
             return
+    return artigos
 def inserirEdicao(artigos):
     print("\n")
     tema=input("Informe o tema desta Edição: ")
