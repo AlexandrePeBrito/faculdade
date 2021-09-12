@@ -89,8 +89,31 @@ def inserirEdicao():
             print("\tNenhum artigo foi submetido")
     except ValueError:
         print("Você inseriu um valor invalido!")
-        exit(1)
+    return avaliadores, autores, artigos, revista
 
-        
-inserirEdicao()
-
+def menu():
+    c=0
+    respMenu=1
+    while respMenu!=0:
+        if c==0:
+            avaliadores, autores, artigos, revista = inserirEdicao()
+        else:
+            respMenu=input("\n\nMenu:\t1- Visualizar Avaliadores"+
+            "\n\t\t2- Visualizar Autores"+
+            "\n\t\t3- Visualizar Artigos"+
+            "\n\t\t4- Visualizar Edições"+
+            "\n\t\t5- sair")
+            if respMenu==1:
+                for c in range(0,len(avaliadores)):
+                    print(avaliadores[c].dadosAvaliador())
+            elif respMenu==2:
+                for c in range(0,len(autores)):
+                    print(autores[c].dadosAutor())
+            elif respMenu==3:
+                for c in range(0,len(artigos)):
+                    print(artigos[c].dadosArtigo())
+            elif respMenu==4:
+                pass
+            elif respMenu==5:
+                print("\nObrigado por utilizar do nosso Sistema!!")
+                exit(1)

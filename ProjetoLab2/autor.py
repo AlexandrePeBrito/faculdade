@@ -33,4 +33,4 @@ class Autor():
         self.__endereco=endereco
 
     def dadosAutor(self):
-        print(f"Autor:\nNome: {self.__nome}\nEmail: {self.__email}\nInstituição: {self.__instituicao}\nEndereço: {self.__endereco}")
+        print(f"Autor:\n\tNome: {self.__nome}\n\tEmail: {self.__email}\n\tInstituição: {self.__instituicao}\n\tEndereço: {self.__endereco}\n\n")

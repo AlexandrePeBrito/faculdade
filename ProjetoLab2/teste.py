@@ -2,7 +2,10 @@
 
 
 
-nome="alexandre"
+def ok(a,b):
+    return a+b, a*b
 
-print("nome: ",format(nome))
-print(f"nome: {nome} este cara eh lindao")
+soma, produto = ok(2,3)
+
+print(soma)
+print(produto)

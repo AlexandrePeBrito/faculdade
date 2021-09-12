@@ -38,4 +38,4 @@ class Artigo:
         return self.__id
 
     def dadosArtigo(self):
-        print(f'Artigo:\nID: {self.__id}\nAutor: {self.__autor.getNome()}\nTitulo: {self.__titulo}\nNota: {self.__nota}')
+        print(f'Artigo:\n\tID: {self.__id}\n\tAutor: {self.__autor.getNome()}\n\tTitulo: {self.__titulo}\n\tNota: {self.__nota}\n\n')
